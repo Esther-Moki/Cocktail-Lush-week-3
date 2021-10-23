@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "81098139071",
+    "project_id": "cocktail-lush-week-3",
+    "storage_bucket": "cocktail-lush-week-3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81098139071:android:87b3b0ba29aa1e4b72ad0a",
+        "android_client_info": {
+          "package_name": "com.moringaschool.cocktaillush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "81098139071-u6skfdv3km8p9r3mcdidglfo5065u9qm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moringaschool.cocktaillush",
+            "certificate_hash": "fde20dc622fc47aff64f15550853c58e1a760aa2"
+          }
+        },
+        {
+          "client_id": "81098139071-2sq1op019v34aig4kpepuc3akjc1vssi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyGRQd5MdK8N64QBWr5Qgw5HlHdzX2bls"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "81098139071-2sq1op019v34aig4kpepuc3akjc1vssi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

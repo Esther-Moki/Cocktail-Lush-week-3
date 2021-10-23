@@ -24,6 +24,20 @@ android {
     buildTypes.each {
         it.buildConfigField 'String', 'YELP_API_KEY', YelpApiKey
     }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/notice.txt'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -65,6 +79,12 @@ dependencies {
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
 //    api "org.parceler:parceler-api:$rootProject.ext.parcelVersion"
+   // implementation 'com.google.firebase:firebase-database'
+
+    //    Firebase
+    implementation platform('com.google.firebase:firebase-bom:26.4.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-database'
 
 
 //Robolectric dependencies
@@ -72,3 +92,4 @@ dependencies {
     testImplementation 'org.robolectric:robolectric:4.4'
 
 }
+apply plugin: 'com.google.gms.google-services'
