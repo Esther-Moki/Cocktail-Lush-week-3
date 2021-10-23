@@ -10,12 +10,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.cocktaillush.Constants;
 import com.moringaschool.cocktaillush.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private DatabaseReference mSearchedNameReference;
   //  public static final String TAG = MainActivity.class.getSimpleName();
 //    private Button mFindCocktailButton;
 //    private EditText mNameEditText;
@@ -27,6 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mSearchedNameReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_SEARCHED_NAME);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -42,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if(v == mFindCocktailButton) {
             String name = mNameEditText.getText().toString();
+            saveNameToFirebase(name);
             Intent intent = new Intent(MainActivity.this, CocktailListActivity.class);
             intent.putExtra("name", name);
             startActivity(intent);
@@ -50,5 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void saveNameToFirebase(String name) {
+        mSearchedNameReference.setValue(name);
+    }
 
 }
