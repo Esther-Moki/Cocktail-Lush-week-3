@@ -5,11 +5,11 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_cocktail.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_cocktail_detail.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/activity_cocktail_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_cocktail_xml.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/cocktail_list_item.xml" value="0.1082427536231884" />
-        <entry key="app/src/main/res/layout/fragment_cocktail_detail.xml" value="0.17307692307692307" />
+        <entry key="app/src/main/res/layout/fragment_cocktail_detail.xml" value="0.1" />
       </map>
     </option>
   </component>

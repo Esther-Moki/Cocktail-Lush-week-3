@@ -13,6 +13,7 @@
         android:orientation="vertical"
         android:background="@color/white">
 
+
         <ImageView
             android:id="@+id/cocktailImageView"
             android:layout_width="match_parent"

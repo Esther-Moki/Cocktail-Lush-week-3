@@ -30,4 +30,10 @@ public class CocktailPagerAdapter extends FragmentPagerAdapter {
         return mCocktails.size();
     }
 
+    @Override
+    public CharSequence getPageTitle(int position) {
+
+        return mCocktails.get(position).getStrDrink();
+    }
+
 }

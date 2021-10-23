@@ -28,7 +28,7 @@ import retrofit2.Response;
 
 public class CocktailListActivity extends AppCompatActivity {
     private static final String TAG = CocktailListActivity.class.getSimpleName();
-
+    private CocktailListadapter mAdapter;
 //    private TextView mNameTextView;
 //    private ListView mListView;
 
@@ -41,7 +41,7 @@ public class CocktailListActivity extends AppCompatActivity {
 
 
     public List<Drink> cocktails;
-    private CocktailListadapter mAdapter;
+
 
 
 
