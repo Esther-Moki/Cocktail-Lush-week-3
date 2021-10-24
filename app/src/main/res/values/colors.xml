@@ -17,4 +17,11 @@
     <color name="colorDivider">#B6B6B6</color>
     <color name="colorAmber">#FFC300 </color>
     <color name="colorBlue">#1B3EB7 </color>
+    <color name="colorNewBlue"> #2962ff</color>
+    <color name="colorBrown">#B2612D</color>
+    <color name="colorDarkBrown">#2C1506</color>
+
+
+
+
 </resources>

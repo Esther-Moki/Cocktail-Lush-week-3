@@ -7,6 +7,8 @@
         <entry key="app/src/main/res/layout/activity_cocktail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_cocktail_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_cocktail_xml.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_create_account.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/cocktail_list_item.xml" value="0.1082427536231884" />
         <entry key="app/src/main/res/layout/fragment_cocktail_detail.xml" value="0.1" />
