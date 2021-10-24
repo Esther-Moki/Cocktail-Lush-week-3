@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CocktailLush">
         <activity
+            android:name=".ui.CreateAccountActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.SavedCocktailListActivity"
             android:exported="true" />
         <activity
