@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CocktailLush">
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.MainActivity"
+            android:theme="@style/NoActionBarTheme"
             android:exported="true" />
         <activity
             android:name=".ui.CreateAccountActivity"
@@ -31,9 +32,8 @@
                 android:value="com.moringaschool.cocktaillush.ui.MainActivity" />
         </activity>
         <activity
-            android:name=".ui.MainActivity"
-            android:exported="true"
-            android:theme="@style/NoActionBarTheme">
+            android:name=".ui.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
