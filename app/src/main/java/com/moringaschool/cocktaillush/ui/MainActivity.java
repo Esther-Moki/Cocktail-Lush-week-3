@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id. findCocktailButton) Button  mFindCocktailButton;
     @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+    @BindView(R.id.savedCocktailsButton) Button mSavedCocktailsButton;
 
 
     @Override
@@ -62,12 +63,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+       // ButterKnife.bind(this);
 //        mNameEditText = (EditText) findViewById(R.id.nameEditText);
 //        mFindCocktailButton = (Button)findViewById(R.id.findCocktailButton);
 //        mAppNameTextView = (TextView) findViewById(R.id.appNameTextView);
 
 
         mFindCocktailButton.setOnClickListener(this);
+        mSavedCocktailsButton.setOnClickListener(this);
     }
 
 
@@ -81,6 +84,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
 
                //Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_LONG).show();
+        }
+        if(v == mSavedCocktailsButton){
+            Intent intent = new Intent(MainActivity.this, SavedCocktailListActivity.class);
+            startActivity(intent);
         }
     }
 
