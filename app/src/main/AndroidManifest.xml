@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CocktailLush">
         <activity
+            android:name=".ui.SavedCocktailListActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.CocktailDetailActivity"
             android:exported="true" />
         <activity
@@ -19,7 +22,7 @@
             android:exported="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.moringaschool.cocktaillush.ui.MainActivity"></meta-data>
+                android:value="com.moringaschool.cocktaillush.ui.MainActivity" />
         </activity>
         <activity
             android:name=".ui.MainActivity"
