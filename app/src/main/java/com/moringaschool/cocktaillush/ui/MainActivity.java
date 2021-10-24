@@ -31,33 +31,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    private EditText mNameEditText;
 //    private TextView mAppNameTextView;
     @BindView(R.id. findCocktailButton) Button  mFindCocktailButton;
-    @BindView(R.id.nameEditText) EditText mNameEditText;
+  //  @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
     @BindView(R.id.savedCocktailsButton) Button mSavedCocktailsButton;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mSearchedNameReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_SEARCHED_NAME);//pinpoint name node
+//        mSearchedNameReference = FirebaseDatabase
+//                .getInstance()
+//                .getReference()
+//                .child(Constants.FIREBASE_CHILD_SEARCHED_NAME);//pinpoint name node
+//
+//        mSearchedNameReference.addValueEventListener(new ValueEventListener() { //attach listener
+//
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
+//                for (DataSnapshot nameSnapshot : dataSnapshot.getChildren()) {
+//                    String name = nameSnapshot.getValue().toString();
+//                    Log.d("Name updated", "name: " + name); //log
+//                }
+//            }
 
-        mSearchedNameReference.addValueEventListener(new ValueEventListener() { //attach listener
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) { //something changed!
-                for (DataSnapshot nameSnapshot : dataSnapshot.getChildren()) {
-                    String name = nameSnapshot.getValue().toString();
-                    Log.d("Name updated", "name: " + name); //log
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) { //update UI here if error occurred.
-
-            }
-        });
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) { //update UI here if error occurred.
+//
+//            }
+//        });
 
 
         super.onCreate(savedInstanceState);
@@ -77,10 +77,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v == mFindCocktailButton) {
-            String name = mNameEditText.getText().toString();
-            saveNameToFirebase(name);
+         //   String name = mNameEditText.getText().toString();
+           // saveNameToFirebase(name);
             Intent intent = new Intent(MainActivity.this, CocktailListActivity.class);
-            intent.putExtra("name", name);
+          //  intent.putExtra("name", name);
             startActivity(intent);
 
                //Toast.makeText(MainActivity.this, "Hello World!", Toast.LENGTH_LONG).show();
@@ -92,14 +92,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    public void saveNameToFirebase(String name) {
-        mSearchedNameReference.push().setValue(name);
-       // mSearchedNameReference.setValue(name);
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedNameReference.removeEventListener(mSearchedNameReferenceListener);
-    }
+//    public void saveNameToFirebase(String name) {
+//        mSearchedNameReference.push().setValue(name);
+//       // mSearchedNameReference.setValue(name);
+//    }
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//        mSearchedNameReference.removeEventListener(mSearchedNameReferenceListener);
+//    }
 
 }

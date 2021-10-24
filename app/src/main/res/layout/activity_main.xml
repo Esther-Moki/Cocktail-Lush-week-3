@@ -26,16 +26,16 @@
         android:textSize="50sp"
         android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTextIcons"
-        android:layout_above="@+id/findCocktailButton"
-        android:layout_marginBottom="10dp"
-        android:padding="5dp"
-        android:hint="Enter Cocktail Name"
-        android:layout_centerHorizontal="true" />
+<!--    <EditText-->
+<!--        android:id="@+id/nameEditText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/colorTextIcons"-->
+<!--        android:layout_above="@+id/findCocktailButton"-->
+<!--        android:layout_marginBottom="10dp"-->
+<!--        android:padding="5dp"-->
+<!--        android:hint="Enter Cocktail Name"-->
+<!--        android:layout_centerHorizontal="true" />-->
 
     <Button
         android:id="@+id/findCocktailButton"

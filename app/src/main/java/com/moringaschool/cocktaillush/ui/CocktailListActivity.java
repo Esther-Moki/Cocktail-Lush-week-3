@@ -5,12 +5,19 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.moringaschool.cocktaillush.Constants;
 import com.moringaschool.cocktaillush.R;
 import com.moringaschool.cocktaillush.adapters.CocktailListadapter;
 import com.moringaschool.cocktaillush.models.CocktailSearchResponse;
@@ -29,6 +36,11 @@ import retrofit2.Response;
 public class CocktailListActivity extends AppCompatActivity {
     private static final String TAG = CocktailListActivity.class.getSimpleName();
     private CocktailListadapter mAdapter;
+
+
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+    private String mRecentName;
 //    private TextView mNameTextView;
 //    private ListView mListView;
 
@@ -41,10 +53,6 @@ public class CocktailListActivity extends AppCompatActivity {
 
 
     public List<Drink> cocktails;
-
-
-
-
 
 
 //    private String[] cocktails = new String[] {"Jungle Bird", "Long Island Iced Tea",
@@ -65,6 +73,14 @@ public class CocktailListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cocktail);
         ButterKnife.bind(this);
 
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentName = mSharedPreferences.getString(Constants.PREFERENCES_NAME_KEY, null);
+        if(mRecentName != null) {
+            fetchCocktails(mRecentName);
+
+        }
+    }
+
 //        mListView = (ListView) findViewById(R.id.listView);
 //        mNameTextView = (TextView) findViewById(R.id.nameTextView);
 
@@ -80,11 +96,45 @@ public class CocktailListActivity extends AppCompatActivity {
 //            }
 //        });
 
-        Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
+        //Intent intent = getIntent();
+       // String name = intent.getStringExtra("name");
        // mNameTextView.setText("Here are all the " + name + " cocktails" );
 
         //API part
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_search, menu);
+        ButterKnife.bind(this);
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
+
+        MenuItem menuItem = menu.findItem(R.id.action_search);
+        SearchView searchView = (SearchView) menuItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String name) {
+                addToSharedPreferences(name);
+                fetchCocktails(name);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String name) {
+                return false;
+            }
+        });
+
+        return true;
+    }
+
+
+
+    private void fetchCocktails(String name){
+
         CocktailApi client = CocktailDbClient.getClient();
 
         Call<CocktailSearchResponse> call = client.getCocktails(name);
@@ -136,8 +186,6 @@ public class CocktailListActivity extends AppCompatActivity {
                 }
             }
 
-
-
             @Override
             public void onFailure(Call<CocktailSearchResponse> call, Throwable t) {
                 Log.e("Error Message", "onFailure: ",t );
@@ -148,6 +196,13 @@ public class CocktailListActivity extends AppCompatActivity {
         });
     }
 
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 
     private void showFailureMessage() {
         mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
@@ -168,4 +223,9 @@ public class CocktailListActivity extends AppCompatActivity {
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
     }
+
+    private void addToSharedPreferences(String name) {
+        mEditor.putString(Constants.PREFERENCES_NAME_KEY, name).apply();
+    }
+
 }
