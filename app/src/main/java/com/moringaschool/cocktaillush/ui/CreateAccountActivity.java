@@ -19,6 +19,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.moringaschool.cocktaillush.R;
 
 import java.util.Objects;
@@ -34,6 +36,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     private FirebaseAuth.AuthStateListener mAuthListener;//responds
     // to the change in the user's authentication state when a user's account
     // is successfully authenticated
+    private ValueEventListener mSearchedLocationReferenceListener;
+    private DatabaseReference mSearchedLocationReference;
 
     @BindView(R.id.createUserButton)
     Button mCreateUserButton;
@@ -112,6 +116,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         };
     }
 
+
     @Override
     public void onStart() {
         super.onStart();
@@ -159,30 +164,32 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
 
     private void createNewUser() {
+        mName = mNameEditText.getText().toString().trim();//for attaching the users name to the welcome message
+
         final String name = mNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
-        mName = mNameEditText.getText().toString().trim();//for attaching the users name to the welcome message
 
         //calling the validation methods to ensure user credentials are accurate
         // before we create an account with Firebase
+        boolean validmName = isValidName(mName);//for attaching the users name to the welcome message
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
         showProgressBar();
 
-        boolean validmName = isValidName(mName);//for attaching the users name to the welcome message
+
 
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
                 hideProgressBar();
                 if (task.isSuccessful()) {
                     Log.d(TAG, "Authentication successful");
+                    createFirebaseUserProfile(Objects.requireNonNull(task.getResult().getUser()));
                 } else {
                     Toast.makeText(CreateAccountActivity.this, "Authentication failed.",
                             Toast.LENGTH_SHORT).show();
@@ -191,13 +198,14 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         });
 
 
+
     }
     //We will create a new method that will set the user's name on the main activity page
 
     private void createFirebaseUserProfile(final FirebaseUser user) {
 
         UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
-                .setDisplayName(mName)// method to attach the user-entered name to the user's
+                .setDisplayName(mName) // method to attach the user-entered name to the user's
                 // profile to be later displayed in the main activity
                 .build();
 
@@ -214,6 +222,28 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
 
                 });
     }
+    //We will create a new method that will set the user's name on the main activity page
+
+//    private void createFirebaseUserProfile(final FirebaseUser user) {
+//
+//        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+//                .setDisplayName(mName)// method to attach the user-entered name to the user's
+//                // profile to be later displayed in the main activity
+//                .build();
+//
+//        user.updateProfile(addProfileName).addOnCompleteListener(new OnCompleteListener<Void>() {
+//
+//                    @Override
+//                    public void onComplete(@NonNull Task<Void> task) {
+//                        if (task.isSuccessful()) {
+//                            Log.d(TAG, Objects.requireNonNull(user.getDisplayName()));
+//                            Toast.makeText(CreateAccountActivity.this, "The display name has ben set", Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//
+//                });
+//    }
+
 }
 
 

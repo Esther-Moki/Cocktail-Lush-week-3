@@ -26,12 +26,13 @@
                 android:textSize="20dp"
                 android:textStyle="bold"
                 android:text="Cocktail Name"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorRed"/>
 
             <TextView
                 android:id="@+id/instructionsTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="How to make this cocktail"
                 android:textStyle="italic"/>
 
@@ -46,7 +47,7 @@
                 android:text="Cocktail class"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                android:textColor="@color/colorAccent"/>
+                android:textColor="@color/black"/>
         </RelativeLayout>
 
     </LinearLayout>

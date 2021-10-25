@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @BindView(R.id.passwordLoginButton) Button mPasswordLoginButton;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
     @BindView(R.id.passwordEditText) EditText mPasswordEditText;
+    @BindView(R.id.firebaseProgressBar) ProgressBar mSignInProgressBar;
+    @BindView(R.id.loadingTextView) TextView mLoadingSignUp;
 
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
 
@@ -35,6 +38,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     //when a user logs in we want them to see our MainActivity,like in the CreateAccountActivity, the
     // AuthStateListener is to listen for changes in the current authentication state
     private FirebaseAuth.AuthStateListener mAuthListener;
+   // private FirebaseAuth mAuthProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mRegisterTextView.setOnClickListener(this);
         mPasswordLoginButton.setOnClickListener(this);//click listener to the mPasswordLoginButton
         // which will trigger a loginWithPassword() method
+
         mAuthListener = new FirebaseAuth.AuthStateListener() {
 
             @Override
@@ -60,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 }
             }
         };
-     }
+    }
 
     @Override
     public void onClick(View view) {
@@ -72,11 +77,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //
         if (view == mPasswordLoginButton) {
             loginWithPassword();
+            showProgressBar();
         }
 
     }
+    private void showProgressBar() {
+        mSignInProgressBar.setVisibility(View.VISIBLE);
+        mLoadingSignUp.setVisibility(View.VISIBLE);
+        //mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mLoadingSignUp.setText("Log you in");
+    }
 
-   //this method will be responsible for reaching out to Firebase and authenticating the account
+    private void hideProgressBar() {
+        mSignInProgressBar.setVisibility(View.GONE);
+        mLoadingSignUp.setVisibility(View.GONE);
+    }
+
+    //this method will be responsible for reaching out to Firebase and authenticating the account
    // with the user-provided credentials
     private void loginWithPassword() {
         String email = mEmailEditText.getText().toString().trim();
@@ -90,10 +107,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
+        //mAuthProgressDialog.show();
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        hideProgressBar();
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail", task.getException());
