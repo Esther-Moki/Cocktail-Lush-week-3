@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.LoginActivity"
-    android:background="@color/colorBrown">
+    android:background="@color/colorBlue">
 
     <LinearLayout
         android:orientation="vertical"
@@ -51,16 +51,16 @@
             android:padding="15dp"
             android:text="LOG IN"
             android:textSize="18sp"
-            android:backgroundTint="@color/colorDarkBrown"
+            android:backgroundTint="@color/colorAmber"
             android:layout_marginTop="15dp"
-            android:textColor="@color/colorTextIcons" />
+            android:textColor="@color/black" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:textColor="@color/colorTextIcons"
+            android:textColor="@color/black"
             android:textStyle="bold"
             android:textSize="18sp"
             android:text="Don't have an account? Sign up here!"
@@ -89,8 +89,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log In"
-        android:textColor="@color/colorPrimaryLight"
+        android:text="LOG IN"
+        android:textColor="@color/white"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
