@@ -4,7 +4,7 @@ The Cocktail Lush project happens to be a simple cocktail app written in java us
 you to search for recipes, images of specific cocktails, ingredients, filter by alcoholic, non alcoholic and more by fetching data from the
 Cocktails DB API,an API where one get data on alcohol & cocktails.When a cocktail is clicked a new fragment
 appears that gives the user the drink name, ingredients , and directions on how to make the cocktail.The app is also linked to firebase 
-to store the users previously searched and saved cocktails
+to store the users previously searched and saved cocktails.
 
 
 * By Esther Moki
@@ -24,9 +24,10 @@ This project helps one when they are looking for any cocktail of which one just 
 * 5.Use the cocktailDB API IN retrieving data about the cocktails.
 * 6.Use FirebaseUI for Android which is an open-source library for Android that allows you to quickly 
   connect common UI elements to Firebase APIs.
-*7.FirebaseUI is published as a collection of libraries separated by the Firebase API they target. 
-  Each FirebaseUI library has a transitive dependency on the appropriate Firebase SDK so there is no need to include those separately in your app.
-  In your app/build.gradle file add a dependency on one of the FirebaseUI libraries.
+* 7.FirebaseUI is published as a collection of libraries separated by the Firebase API they target. 
+  Each FirebaseUI library has a transitive dependency on the appropriate Firebase SDK so there is no need to 
+  include those separately in your app.
+* 8.In your app/build.gradle file add a dependency on one of the FirebaseUI libraries.
   
         dependencies {
   
@@ -53,13 +54,13 @@ After the project is synchronized, we're ready to start using Firebase functiona
 
 If you are using an old version of FirebaseUI and upgrading, please see the appropriate migration guide:
 
-        * Upgrade from 7.2.0 to 8.x.x
-        * Upgrade from 6.4.0 to 7.x.x
-        * Upgrade from 5.1.0 to 6.x.x
-        * Upgrade from 4.3.2 to 5.x.x
-        * Upgrade from 3.3.1 to 4.x.x    
-        * Upgrade from 2.3.0 to 3.x.x
-        * Upgrade from 1.2.0 to 2.x.x
+         Upgrade from 7.2.0 to 8.x.x
+         Upgrade from 6.4.0 to 7.x.x
+         Upgrade from 5.1.0 to 6.x.x
+         Upgrade from 4.3.2 to 5.x.x
+         Upgrade from 3.3.1 to 4.x.x    
+         Upgrade from 2.3.0 to 3.x.x
+         Upgrade from 1.2.0 to 2.x.x
 
 # Dependencies
 
@@ -68,17 +69,17 @@ If you are using an old version of FirebaseUI and upgrading, please see the appr
 FirebaseUI libraries have the following transitive dependencies on the Firebase SDK:
 
         //firebase-ui-auth
-        * |--- com.google.firebase:firebase-auth
-        * |--- com.google.android.gms:play-services-auth
+         |--- com.google.firebase:firebase-auth
+         |--- com.google.android.gms:play-services-auth
         
         //firebase-ui-database
-        * |--- com.google.firebase:firebase-database
+         |--- com.google.firebase:firebase-database
         
        // firebase-ui-firestore
-        * |--- com.google.firebase:firebase-firestore
+         |--- com.google.firebase:firebase-firestore
         
        // firebase-ui-storage
-        * |--- com.google.firebase:firebase-storage
+         |--- com.google.firebase:firebase-storage
 
 You can see the specific dependencies associated with each release on the Releases page.
 
@@ -87,28 +88,28 @@ You can see the specific dependencies associated with each release on the Releas
 If you would like to use a newer version of one of FirebaseUI's transitive dependencies, such as Firebase, Play services, or the Android support libraries, you need to add explicit implementation declarations in your build.gradle for all of FirebaseUI's dependencies at the version you want to use. Here are some examples listing all of the critical dependencies:
 
 # Auth
-* implementation "com.google.firebase:firebase-auth:$X.Y.Z"
-* implementation "com.google.android.gms:play-services-auth:$X.Y.Z"
-* implementation "androidx.lifecycle:lifecycle-extensions:$X.Y.Z"
-* implementation "androidx.browser:browser:$X.Y.Z"
-* implementation "androidx.cardview:cardview:$X.Y.Z"
-* implementation "androidx.constraintlayout:constraintlayout:$X.Y.Z"
-* implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
-* implementation "com.google.android.material:material:$X.Y.Z"
+     implementation "com.google.firebase:firebase-auth:$X.Y.Z"
+     implementation "com.google.android.gms:play-services-auth:$X.Y.Z"
+     implementation "androidx.lifecycle:lifecycle-extensions:$X.Y.Z"
+     implementation "androidx.browser:browser:$X.Y.Z"
+     implementation "androidx.cardview:cardview:$X.Y.Z"
+     implementation "androidx.constraintlayout:constraintlayout:$X.Y.Z"
+     implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
+     implementation "com.google.android.material:material:$X.Y.Z"
 
 # Firestore
-* implementation "com.google.firebase:firebase-firestore:$X.Y.Z"
-* implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
-* implementation "androidx.recyclerview:recyclerview:$X.Y.Z"
+     implementation "com.google.firebase:firebase-firestore:$X.Y.Z"
+     implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
+     implementation "androidx.recyclerview:recyclerview:$X.Y.Z"
 
 # Realtime Database
-* implementation "com.google.firebase:firebase-database:$X.Y.Z"
-* implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
-* implementation "androidx.recyclerview:recyclerview:$X.Y.Z"
+     implementation "com.google.firebase:firebase-database:$X.Y.Z"
+     implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
+     implementation "androidx.recyclerview:recyclerview:$X.Y.Z"
 
 # Storage
-* implementation "com.google.firebase:firebase-storage:$X.Y.Z"
-* implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
+     implementation "com.google.firebase:firebase-storage:$X.Y.Z"
+     implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
 
 ## Contributing
 
@@ -116,7 +117,7 @@ If you would like to use a newer version of one of FirebaseUI's transitive depen
 
 You can download FirebaseUI and install it locally by cloning this repository and running:
 
-./gradlew :library:prepareArtifacts publishToMavenLocal
+    ./gradlew :library:prepareArtifacts publishToMavenLocal
 
 ## Known Bugs
 
@@ -128,7 +129,7 @@ Languages used include:
 
 * 1.Java
 * 2.Android-Studio
-*3.FirebaseUI for Android
+* 3.FirebaseUI for Android
 
 ## Build
 
