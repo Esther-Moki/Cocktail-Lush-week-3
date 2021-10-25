@@ -49,7 +49,7 @@ If you're including the firebase-ui-auth dependency, there's a little more setup
 
 After the project is synchronized, we're ready to start using Firebase functionality in our app.
 
-## Upgrading
+# Upgrading
 
 If you are using an old version of FirebaseUI and upgrading, please see the appropriate migration guide:
 
@@ -61,9 +61,9 @@ If you are using an old version of FirebaseUI and upgrading, please see the appr
         * Upgrade from 2.3.0 to 3.x.x
         * Upgrade from 1.2.0 to 2.x.x
 
-##Dependencies
+# Dependencies
 
-#Compatibility with Firebase / Google Play Services libraries
+# Compatibility with Firebase / Google Play Services libraries
 
 FirebaseUI libraries have the following transitive dependencies on the Firebase SDK:
 
@@ -82,11 +82,11 @@ FirebaseUI libraries have the following transitive dependencies on the Firebase 
 
 You can see the specific dependencies associated with each release on the Releases page.
 
-##Upgrading dependencies
+## Upgrading dependencies
 
 If you would like to use a newer version of one of FirebaseUI's transitive dependencies, such as Firebase, Play services, or the Android support libraries, you need to add explicit implementation declarations in your build.gradle for all of FirebaseUI's dependencies at the version you want to use. Here are some examples listing all of the critical dependencies:
 
-#Auth
+# Auth
 * implementation "com.google.firebase:firebase-auth:$X.Y.Z"
 * implementation "com.google.android.gms:play-services-auth:$X.Y.Z"
 * implementation "androidx.lifecycle:lifecycle-extensions:$X.Y.Z"
@@ -96,23 +96,23 @@ If you would like to use a newer version of one of FirebaseUI's transitive depen
 * implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
 * implementation "com.google.android.material:material:$X.Y.Z"
 
-#Firestore
+# Firestore
 * implementation "com.google.firebase:firebase-firestore:$X.Y.Z"
 * implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
 * implementation "androidx.recyclerview:recyclerview:$X.Y.Z"
 
-#Realtime Database
+# Realtime Database
 * implementation "com.google.firebase:firebase-database:$X.Y.Z"
 * implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
 * implementation "androidx.recyclerview:recyclerview:$X.Y.Z"
 
-#Storage
+# Storage
 * implementation "com.google.firebase:firebase-storage:$X.Y.Z"
 * implementation "androidx.legacy:legacy-support-v4:$X.Y.Z"
 
-##Contributing
+## Contributing
 
-#Installing locally
+# Installing locally
 
 You can download FirebaseUI and install it locally by cloning this repository and running:
 
