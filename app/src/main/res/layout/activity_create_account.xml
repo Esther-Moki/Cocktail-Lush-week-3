@@ -8,6 +8,17 @@
     android:background="@color/colorBlue">
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create Account"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true" />
+
+
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -15,6 +26,7 @@
         android:layout_centerInParent="true"
         android:orientation="vertical"
         android:padding="30dp">
+
 
 
         <EditText
@@ -82,7 +94,7 @@
             android:backgroundTint="@color/colorAmber"
             android:padding="10dp"
             android:text="Sign up"
-            android:textColor="@color/colorTextIcons"
+            android:textColor="@color/black"
             android:textSize="25sp" />
 
         <ProgressBar
@@ -110,21 +122,11 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
             android:text="Already have an account? Log in here!"
-            android:textColor="@color/colorTextIcons"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
-
-
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        android:layout_above="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
 
